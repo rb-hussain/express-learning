@@ -6,6 +6,9 @@ const port = 4000;
 const path = require("path");
 // Import Body Parser 
 const bodyParser = require("body-parser");
+
+app.use(bodyParser.urlencoded({extended:false}));
+
 // Set Response on  / Request 
 
 // Get Method
@@ -19,7 +22,8 @@ app.get("/", (req,res)=>{
 });
 
 app.post("/api/v1/login",(req,res)=>{
-    res.send("Done");
+    console.log(req.body)
+    res.send(`Welcome MR.  ${req.body.name}`);
 })
 
 // Post Method
